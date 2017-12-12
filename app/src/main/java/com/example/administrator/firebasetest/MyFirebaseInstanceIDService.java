@@ -14,7 +14,8 @@ import static android.content.ContentValues.TAG;
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
     @Override
     public void onTokenRefresh() {
-        super.onTokenRefresh(); String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        super.onTokenRefresh();
+        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
         Log.d(TAG, "Simar Refreshed token: " + refreshedToken);
 
         // If you want to send messages to this application instance or
@@ -27,8 +28,8 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
     public void onCreate() {
         super.onCreate();
     }
+
     private void sendRegistrationToServer(String token) {
-        // TODO: Implement thisthod to send token to your app server.
-        Log.i(TAG,token);
+        Log.d(TAG, token);
     }
 }
