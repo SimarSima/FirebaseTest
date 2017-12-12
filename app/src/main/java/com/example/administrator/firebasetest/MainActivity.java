@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        TextView tv=findViewById(R.id.tv_status);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        TextView tv = findViewById(R.id.tv_status);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,24 +40,22 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        boolean  googleserviceFlag=true;
+        boolean googleserviceFlag = true;
         GoogleApiAvailability googleApiAvailability = GoogleApiAvailability.getInstance();
         int resultCode = googleApiAvailability.isGooglePlayServicesAvailable(this);
-        if(resultCode != ConnectionResult.SUCCESS)
-        {
-            if(googleApiAvailability.isUserResolvableError(resultCode))
-            {
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (googleApiAvailability.isUserResolvableError(resultCode)) {
                 googleApiAvailability.getErrorDialog(this,
-                        resultCode, 2404).show();
+                                                     resultCode, 2404).show();
             }
-              googleserviceFlag=false;
+            googleserviceFlag = false;
         }
 
-        if(googleserviceFlag==false){
-            Log.d(TAG,"Simar Sorry");
+        if (googleserviceFlag == false) {
+            Log.d(TAG, "Simar Sorry");
             tv.setText("Service Bad");
-        }else{
-            Log.d(TAG,"Simar Wonderful");
+        } else {
+            Log.d(TAG, "Simar Wonderful");
             tv.setText("Service Good");
             FirebaseInstanceId.getInstance().getToken();
         }
