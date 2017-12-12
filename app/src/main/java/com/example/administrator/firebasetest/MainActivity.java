@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Log.d(TAG, "Simar Wonderful");
             tv.setText("Service Good");
-            FirebaseInstanceId.getInstance().getToken();
+            String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+            Log.d(TAG, "Simar Token :"+refreshedToken);
         }
         PushSettings.enableDebugMode(this, true);
         PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY,
