@@ -1,2 +1,2 @@
-# PushDemo
-A push demo with FCM and Baidu Push
+# FirebaseTest
+This is a demo with Baidu Push and FCM Push
